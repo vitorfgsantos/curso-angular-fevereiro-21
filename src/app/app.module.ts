@@ -9,6 +9,7 @@ import { HomeComponent } from './home/home.component';
 import { ExercicioDataBindingComponent } from './exercicio-data-binding/exercicio-data-binding.component';
 import { ExercicioContadorComponent } from './exercicio-contador/exercicio-contador.component';
 import { FormsModule } from '@angular/forms';
+import { ExercicioDiretivasComponent } from './exercicio-diretivas/exercicio-diretivas.component';
 
 @NgModule({
   declarations: [
@@ -17,7 +18,8 @@ import { FormsModule } from '@angular/forms';
     HomeComponent,
     FooterComponent,
     ExercicioDataBindingComponent,
-    ExercicioContadorComponent
+    ExercicioContadorComponent,
+    ExercicioDiretivasComponent
   ],
   imports: [
     BrowserModule,

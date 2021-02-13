@@ -1,0 +1,46 @@
+<!-- NgIf -->
+
+<button (click)="trocarValor()"> Trocar valor </button> {{ deveExibir }}
+
+<p *ngIf="deveExibir; else blocoElse">
+  Meu texto...
+</p>
+
+<ng-template #blocoElse>
+  <p> Sou o bloco ELSE. </p>
+</ng-template>
+
+<div *ngIf="getExibir(); then bloco1; else bloco2"></div>
+<ng-template #bloco1>
+  <p> Bloco 1 </p>
+</ng-template>
+<ng-template #bloco2>
+  <p> Bloco 2 </p>
+</ng-template>
+
+<ng-template [ngIf]="deveExibir">
+  <p> Conteudo dentro do NgTemplate </p>
+</ng-template>
+
+<div *ngIf="somar(2, 4) > 5">
+  Olá, estou dentro do NgIf!
+</div>
+
+<p [hidden]="!deveExibir">
+  Elemento com hidden
+</p>
+
+<!-- NgFor -->
+
+<button (click)="adicionarMaisUmCurso('Mais um curso')">
+  Adicionar curso
+</button>
+
+<ul>
+  <li *ngFor="let curso of cursos; let i = index; let count = count; let last = last">
+    {{ count }} -  {{ i + 1 }} - {{ curso }}
+     - {{ last ? 'Este é o ultimo item!' : '' }}
+  </li>
+</ul>
+
+<p *ngFor="let curso of cursos"> {{ curso }} </p>
