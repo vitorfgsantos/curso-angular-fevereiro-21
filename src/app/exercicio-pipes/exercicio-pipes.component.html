@@ -13,3 +13,39 @@
 <h2>Aluguel: {{ filme.dataLancamento | date:'full' | uppercase }}</h2>
 
 {{ filme | json }}
+
+<!-- Exercicio de Pipes -->
+
+<h1> Exercício de Pipes </h1>
+
+<ul>
+  <li *ngFor="let compra of compras">
+    <p> Produto: <b>{{ compra.produto | uppercase }}</b> </p>
+    <p> Valor: {{ compra.valor | currency }} </p>
+    <p> Quantidade: {{ compra.quantidade }} </p>
+    <!-- <p> Peso: {{ compra.peso | number:'1.1-2' }} Kg </p> -->
+    <p *ngIf="compra.peso > 0; else elsePeso">
+      Peso: {{ compra.peso | number:'1.1-2' }} Kg
+    </p>
+    <ng-template #elsePeso>
+      <p> Peso: Sem peso </p>
+    </ng-template>
+
+    <p>
+      Peso: {{ compra.peso > 0 ? 
+        (compra.peso | number:'1.1-2') + ' Kg' 
+        : 'Sem peso' }}
+    </p>
+
+    <p>
+      Peso: {{ getPesoFormatado(compra.peso) }}
+    </p>
+    
+
+    <!-- <p> Data: {{ compra.data | date:'fullDate' }}, às {{ compra.data | date:'HH:mm' }} </p> -->
+    <p> Data: {{ compra.data | date:"EEEE, d 'de' MMMM 'de' yyyy, 'às' HH:mm" }} </p>
+  </li>
+</ul>
+
+
+<br><br><br><br><br><br><br>
