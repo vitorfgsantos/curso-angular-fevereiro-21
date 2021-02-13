@@ -33,3 +33,19 @@
 ></app-exercicio-contador>
 
 <h2> Valor da variável dentro do ExercicioDatabing: {{ valorDoContador }} </h2>
+
+<!-- NgModel -->
+
+<input type="text" [(ngModel)]="meuNovoTexto"> <br>
+<p> Valor em meu novo texto: {{ meuNovoTexto }} </p>
+
+<select [(ngModel)]="valorNoSelect">
+  <option value="volvo"> Volvo </option>
+  <option value="mercedes"> Mercedes </option>
+  <option value="audi"> Audi </option>
+</select>
+
+<p> Valor no select: {{ valorNoSelect }} </p>
+
+
+<br><br><br><br><br><br>

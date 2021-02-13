@@ -14,6 +14,8 @@ export class ExercicioDataBindingComponent implements OnInit {
   botaoDesabilitado = true;
 
   meuTexto = '';
+  meuNovoTexto = '';
+  valorNoSelect = 'volvo';
 
   valorDoContador = 10;
 
