@@ -29,8 +29,7 @@
 <!-- Exercício Contador -->
 
 <app-exercicio-contador
-  [valor]="valorDoContador"
-  (valorMudou)="novoValorNoContador($event)"
+  [(valor)]="valorDoContador"
 ></app-exercicio-contador>
 
 <h2> Valor da variável dentro do ExercicioDatabing: {{ valorDoContador }} </h2>

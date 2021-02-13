@@ -42,8 +42,4 @@ export class ExercicioDataBindingComponent implements OnInit {
     this.meuTexto = event.target.value;
   }
 
-  novoValorNoContador(event: number) {
-    this.valorDoContador = event;
-  }
-
 }
