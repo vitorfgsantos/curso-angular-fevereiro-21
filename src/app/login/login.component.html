@@ -1,12 +1,25 @@
 <div class="container pt-5 text-center">
 
   <h1> Seja bem-vindo ao Bankline!</h1>
-  <form class="form-signin">
+  <form class="form-signin" #form="ngForm" (submit)="onSubmit(form)">
     <div class="form-group mt-3">
-      <input type="text" class="form-control" placeholder="Usuário">
+      <input autocomplete="username" type="text" class="form-control" placeholder="Usuário"
+        [(ngModel)]="usuario" name="usuario" required #usuarioInput
+        [class.is-invalid]="exibeErro('usuario', form)">
+      <div class="invalid-feedback">
+        Usuário inválido.
+      </div>
     </div>
     <div class="form-group mt-3">
-      <input type="password" class="form-control" placeholder="Senha">
+      <input autocomplete="current-password" type="password" class="form-control" placeholder="Senha"
+        [(ngModel)]="senha" name="senha" required minlength="4"
+        [class.is-invalid]="exibeErro('senha', form)">
+        <div class="invalid-feedback" *ngIf="form.controls.senha?.errors?.required">
+          Senha não preenchida.
+        </div>
+        <div class="invalid-feedback" *ngIf="form.controls.senha?.errors?.minlength">
+          Senha muito curta.
+        </div>
     </div>
 
     <button type="submit" class="btn btn-primary mt-3">
