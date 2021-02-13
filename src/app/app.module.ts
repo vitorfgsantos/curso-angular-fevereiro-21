@@ -18,6 +18,7 @@ import { ExercicioDiretivasComponent } from './shared/components/exercicio-diret
 import { ExercicioPipesComponent } from './shared/components/exercicio-pipes/exercicio-pipes.component';
 import { FooterComponent } from './shared/components/footer/footer.component';
 import { HeaderComponent } from './shared/components/header/header.component';
+import { Erro404Component } from './erro404/erro404.component';
 
 registerLocaleData(localePT, 'pt');
 
@@ -36,6 +37,7 @@ registerLocaleData(localePT, 'pt');
     LancamentosComponent,
     PlanosContaComponent,
     DashboardComponent,
+    Erro404Component,
   ],
   imports: [
     BrowserModule,

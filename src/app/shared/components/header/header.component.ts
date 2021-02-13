@@ -1,21 +1,21 @@
-import { Component, Input, OnChanges, OnInit } from '@angular/core';
+import { Component, Input } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-header',
   templateUrl: './header.component.html',
   styleUrls: ['./header.component.scss']
 })
-export class HeaderComponent implements OnInit, OnChanges {
+export class HeaderComponent {
+
+  constructor(
+    private router: Router,
+  ) { }
 
   @Input() titulo: string = '';
-  
-  constructor() { }
 
-  ngOnInit(): void {
-  }
-
-  ngOnChanges() {
-    console.log('On Changes');
+  logout() {
+    this.router.navigate(['login']);
   }
 
 }

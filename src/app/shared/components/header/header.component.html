@@ -1,3 +1,10 @@
-<header class="header">
-  <h1> {{ titulo }} </h1>
-</header>
+<nav class="navbar navbar-expand navbar-dark bg-dark p-3">
+  <a class="navbar-brand"> Meu Bankline </a>
+  <div class="navbar-nav">
+    <a class="nav-item nav-link" routerLink="/dashboard" routerLinkActive="active"> Dashboard </a>
+    <a class="nav-item nav-link" routerLink="/planos-conta" routerLinkActive="active"> Planos Conta </a>
+    <a class="nav-item nav-link" routerLink="/lancamentos" routerLinkActive="active"> Lançamentos </a>
+
+    <button class="btn btn-outline-light" (click)="logout()"> Logout </button>
+  </div>
+</nav>
