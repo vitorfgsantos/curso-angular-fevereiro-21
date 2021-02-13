@@ -11,6 +11,7 @@
 
 <input [value]="getTextAcessivel()">
 
+
 <!-- Event Binding -->
 
 <button (click)="clicouNoBotao($event)"
@@ -23,3 +24,13 @@
        (input)="aoDigitar($event)" >
 
 <p> Meu texto está valendo: {{ meuTexto }} </p>
+
+
+<!-- Exercício Contador -->
+
+<app-exercicio-contador
+  [valor]="valorDoContador"
+  (valorMudou)="novoValorNoContador($event)"
+></app-exercicio-contador>
+
+<h2> Valor da variável dentro do ExercicioDatabing: {{ valorDoContador }} </h2>

@@ -15,6 +15,8 @@ export class ExercicioDataBindingComponent implements OnInit {
 
   meuTexto = '';
 
+  valorDoContador = 10;
+
   constructor() { }
 
   ngOnInit(): void {
@@ -38,6 +40,10 @@ export class ExercicioDataBindingComponent implements OnInit {
 
   aoDigitar(event: any) {
     this.meuTexto = event.target.value;
+  }
+
+  novoValorNoContador(event: number) {
+    this.valorDoContador = event;
   }
 
 }
