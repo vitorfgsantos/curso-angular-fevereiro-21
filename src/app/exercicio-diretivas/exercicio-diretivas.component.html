@@ -44,3 +44,25 @@
 </ul>
 
 <p *ngFor="let curso of cursos"> {{ curso }} </p>
+
+
+<!-- Exercício -->
+<ul>
+  <li *ngFor="let memesAgrupados of MEMES_AGRUPADOS_POR_CATEGORIA">
+    {{ memesAgrupados.categoria }}
+
+    <div *ngFor="let meme of memesAgrupados.memes; let first = first">
+      <!-- <img src="{{ IMAGEM_PREFIXO + meme.imagemURL }}"> -->
+      <!-- <img src="{{ getURLImagem(meme.imageURL) }}"> -->
+      <img [src]="IMAGEM_PREFIXO + meme.imagemURL" width="100"
+        *ngIf="!first; else blocoMemeOmitido">
+
+      <ng-template #blocoMemeOmitido>
+        <p> Primeiro meme omitido </p>
+      </ng-template>
+    </div>
+  </li>
+</ul>
+
+
+<br><br><br><br><br><br><br>

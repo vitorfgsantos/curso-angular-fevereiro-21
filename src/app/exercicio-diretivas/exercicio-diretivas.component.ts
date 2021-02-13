@@ -9,6 +9,7 @@ import { MEMES_AGRUPADOS_POR_CATEGORIA } from './exercicio-diretivas.constants';
 export class ExercicioDiretivasComponent {
 
   MEMES_AGRUPADOS_POR_CATEGORIA = MEMES_AGRUPADOS_POR_CATEGORIA;
+  IMAGEM_PREFIXO = 'https://raw.githubusercontent.com/vitorfgsantos/angular-memes-diretivas/master/images';
 
   deveExibir = true;
 
@@ -33,6 +34,10 @@ export class ExercicioDiretivasComponent {
 
   getExibir() {
     return this.deveExibir;
+  }
+
+  getURLImagem(imagemURL: string) {
+    return this.IMAGEM_PREFIXO + imagemURL;
   }
 
 }
