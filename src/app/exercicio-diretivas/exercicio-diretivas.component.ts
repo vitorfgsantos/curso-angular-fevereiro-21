@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { MEMES_AGRUPADOS_POR_CATEGORIA } from './exercicio-diretivas.constants';
 
 @Component({
   selector: 'app-exercicio-diretivas',
@@ -6,6 +7,8 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./exercicio-diretivas.component.scss']
 })
 export class ExercicioDiretivasComponent {
+
+  MEMES_AGRUPADOS_POR_CATEGORIA = MEMES_AGRUPADOS_POR_CATEGORIA;
 
   deveExibir = true;
 
