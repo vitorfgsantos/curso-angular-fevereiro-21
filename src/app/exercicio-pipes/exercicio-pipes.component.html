@@ -1,0 +1,15 @@
+
+<h2> {{ valorMonetario | currency }} </h2>
+<h2>{{ data | date:'mediumDate' }}</h2>
+<h2>{{ data | date:"dd 'de' MMMM 'de' yyyy" }}</h2>
+<h2>{{ data | date:'dd \'de\' MMMM \'de\' yyyy' }}</h2>
+
+<hr>
+
+<h2>Título: {{ filme.titulo | uppercase }}</h2>
+<h2>Título: {{ filme.titulo | lowercase }}</h2>
+<h2>Avaliacao: {{ filme.avaliacao | number:'1.2-2' }}</h2>
+<h2>Aluguel: {{ filme.precoAluguel | currency:'BRL' }}</h2>
+<h2>Aluguel: {{ filme.dataLancamento | date:'full' | uppercase }}</h2>
+
+{{ filme | json }}
