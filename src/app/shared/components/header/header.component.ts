@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component } from '@angular/core';
 import { Router } from '@angular/router';
 
 @Component({
@@ -11,8 +11,6 @@ export class HeaderComponent {
   constructor(
     private router: Router,
   ) { }
-
-  @Input() titulo: string = '';
 
   logout() {
     this.router.navigate(['login']);
