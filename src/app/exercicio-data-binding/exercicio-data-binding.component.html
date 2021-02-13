@@ -1,0 +1,25 @@
+<!-- Property Binding -->
+
+<img [src]="imagemURL" [width]="imageWidth">
+
+<button [disabled]="botaoDesabilitado"> Clique em mim </button>
+{{ botaoDesabilitado }}
+
+<p [attr.aria-label]="getTextAcessivel()">
+  Um texto qualquer...
+</p>
+
+<input [value]="getTextAcessivel()">
+
+<!-- Event Binding -->
+
+<button (click)="clicouNoBotao($event)"
+(mouseenter)="passouMouseEmCima()"
+> Clique aqui </button>
+
+<button (click)="trocarBotaoDesabilitado()"> Alternar habilitado </button>
+
+<input [value]="meuTexto"
+       (input)="aoDigitar($event)" >
+
+<p> Meu texto está valendo: {{ meuTexto }} </p>

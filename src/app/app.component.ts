@@ -20,4 +20,8 @@ export class AppComponent {
     return numero1 + numero2;
   }
 
+  eventoRecebido(event: any) {
+    console.log('Evento recebido: ', event);
+  }
+
 }
