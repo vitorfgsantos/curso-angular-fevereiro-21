@@ -64,5 +64,18 @@
   </li>
 </ul>
 
+<!-- NgClass -->
+
+<button (click)="trocarParaVermelho()"> Trocar para vermelho </button>
+<button (click)="trocarParaVerde()"> Trocar para verde </button>
+
+<h2 [ngClass]="classeCSS"> Meu texto com NgClass </h2>
+
+<h2 [class]="deveExibir ? 'verde' : 'vermelho'"> Meu segundo texto com NgClass </h2>
+
+<h2 [class.verde]="deveExibir"> Meu segundo texto com NgClass </h2>
+
+<h2 [ngClass]="getClasseCSS(1000)"> Meu terceiro texto com NgClass </h2>
+
 
 <br><br><br><br><br><br><br>
