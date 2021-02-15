@@ -12,7 +12,7 @@
     </div>
     <div class="form-group mt-3">
       <input autocomplete="current-password" type="password" class="form-control" placeholder="Senha"
-        [(ngModel)]="senha" name="senha" required minlength="4"
+        [(ngModel)]="senha" name="senha" required minlength="4" #senhaInput
         [class.is-invalid]="exibeErro('senha', form)">
         <div class="invalid-feedback" *ngIf="form.controls.senha?.errors?.required">
           Senha não preenchida.
