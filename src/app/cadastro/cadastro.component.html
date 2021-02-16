@@ -1,1 +1,71 @@
-<p>cadastro works!</p>
+<div class="container pt-5 text-center">
+
+  <div *ngIf="!usuarioCriado else usuarioCriadoBlock">
+    <h1> Crie sua conta grátis!</h1>
+
+    <form class="form-signup" #form="ngForm" (ngSubmit)="onSubmit(form)">
+
+      <div class="form-group mt-3">
+        <input autocomplete="name" type="text" class="form-control" placeholder="Nome"
+          [(ngModel)]="dadosCadastrais.nome" name="nome" required
+          [class.is-invalid]="exibeErro('nome', form)" #nomeInput
+        >
+        <div class="invalid-feedback">
+          Nome inválido.
+        </div>
+      </div>
+
+      <div class="form-group mt-3">
+        <input autocomplete="username" type="text" class="form-control" placeholder="Usuário"
+          [(ngModel)]="dadosCadastrais.login" name="login" required
+          [class.is-invalid]="exibeErro('login', form)" #loginInput
+        >
+        <div class="invalid-feedback">
+          Usuário inválido.
+        </div>
+      </div>
+
+      <div class="form-group mt-3">
+        <input autocomplete="off" type="text" class="form-control" placeholder="CPF"
+          [(ngModel)]="dadosCadastrais.cpf" name="cpf" required maxlength="14" mask="CPF_CNPJ"
+          [class.is-invalid]="exibeErro('cpf', form)" #cpfInput
+        >
+        <div class="invalid-feedback">
+          CPF inválido.
+        </div>
+      </div>
+
+      <div class="form-group mt-3">
+        <input autocomplete="new-password" type="password" class="form-control" placeholder="Senha"
+          [(ngModel)]="dadosCadastrais.senha" name="senha" required minlength="5"
+          [class.is-invalid]="exibeErro('senha', form)" #senhaInput
+        >
+        <div class="invalid-feedback">
+          Senha inválida.
+          <p *ngIf="form.controls.senha?.errors?.minlength"> Sua senha deve conter no mínimo 5 caracteres. </p>
+        </div>
+      </div>
+
+      <div class="alert alert-danger mt-3" *ngIf="erro">
+        {{ mensagemErro || 'Ops, algo deu errado!' }}
+      </div>
+
+      <button type="submit" class="btn btn-primary mt-3" *ngIf="!estaCarregando; else spinner">
+        Criar conta
+      </button>
+
+      <ng-template #spinner>
+        <div class="spinner-border mt-4" role="status"></div>
+      </ng-template>       
+    </form>
+
+    <p> Já possui uma conta? <a routerLink="/login"> Faça login.</a> </p>
+  </div>
+
+  <ng-template #usuarioCriadoBlock>
+    <h1> {{ dadosCadastrais.nome }}, seja bem-vindo! 🤩</h1>
+    <p>
+      Sua conta foi criada com sucesso. <a routerLink="/login">Faça login aqui.</a>
+    </p>
+  </ng-template>
+</div>
