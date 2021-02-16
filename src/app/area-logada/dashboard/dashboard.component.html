@@ -1,1 +1,100 @@
-<h1> Seja bem-vindo, {{ usuario.nome }} </h1>
+<main class="container p-4">
+  <div class="jumbotron jumbotron-fluid">
+    <div class="container">
+      <h1 class="display-4"> Seja bem-vindo, {{ usuario!.nome }}! </h1>
+      <p class="lead"> Acompanhe abaixo suas contas e seus lançamentos. </p>
+    </div>
+  </div>
+
+  <form class="row g-3 p-5">
+    <div class="col-md-6">
+      <label for="inicio">Início</label>
+      <input type="date" class="form-control" id="inicio">
+    </div>
+    <div class="col-md-6">
+      <label for="inicio">Fim</label>
+      <input type="date" class="form-control" id="fim">
+    </div>
+  </form>
+
+  <div class="row">
+    <div class="col">
+      <div class="card border-success">
+        <h5 class="card-header">Conta Débito</h5>
+        <div class="card-body">
+          <p class="card-text"> Dados do período selecionado.</p>
+
+          <table class="table table-hover">
+            <thead>
+              <tr>
+                <th scope="col">Data</th>
+                <th scope="col">Descrição</th>
+                <th scope="col">Valor</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>5 de jan. de 2021</td>
+                <td>Compra no iFood</td>
+                <td>R$ 55,90</td>
+              </tr>
+              <tr>
+                <td>5 de jan. de 2021</td>
+                <td>Compra no iFood</td>
+                <td>R$ 55,90</td>
+              </tr>
+              <tr>
+                <td>5 de jan. de 2021</td>
+                <td>Compra no iFood</td>
+                <td>R$ 55,90</td>
+              </tr>
+            </tbody>
+          </table>
+
+          <h5 class="card-title text-success"> Saldo total da conta: R$ 40,00</h5>
+
+        </div>
+      </div>
+    </div>
+
+    <div class="col">
+      <div class="card border-danger">
+        <h5 class="card-header">Conta Crédito</h5>
+        <div class="card-body">
+          <p class="card-text"> Dados do período selecionado.</p>
+
+          <table class="table table-hover">
+            <thead>
+              <tr>
+                <th scope="col">Data</th>
+                <th scope="col">Descrição</th>
+                <th scope="col">Valor</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>5 de jan. de 2021</td>
+                <td>Compra no iFood</td>
+                <td>R$ 55,90</td>
+              </tr>
+              <tr>
+                <td>5 de jan. de 2021</td>
+                <td>Compra no iFood</td>
+                <td>R$ 55,90</td>
+              </tr>
+              <tr>
+                <td>5 de jan. de 2021</td>
+                <td>Compra no iFood</td>
+                <td>R$ 55,90</td>
+              </tr>
+            </tbody>
+          </table>
+
+          <h5 class="card-title text-danger"> Saldo total da conta: R$ 40,00</h5>
+
+        </div>
+      </div>
+    </div>
+  </div>
+
+</main>
