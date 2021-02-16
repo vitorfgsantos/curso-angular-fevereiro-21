@@ -22,9 +22,19 @@
         </div>
     </div>
 
-    <button type="submit" class="btn btn-primary mt-3">
+    <p *ngIf="erroNoLogin" class="mt-2">
+      Usuário ou senha inválidos.
+    </p>
+
+    <button type="submit" class="btn btn-primary mt-3" *ngIf="!estaCarregando; else spinner">
       Entrar
     </button>
-    
+
+    <ng-template #spinner>
+      <div class="spinner-border mt-4" role="status">
+        <span class="sr-only"></span>
+      </div>      
+    </ng-template>
+
   </form>  
 </div>
