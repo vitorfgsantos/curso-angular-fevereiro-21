@@ -48,4 +48,18 @@ export class AuthService {
     return this.token;
   }
 
+  estaLogado() {
+    if (this.getUsuario() && this.getToken()) {
+      return true;
+    }
+
+    return false;
+  }
+
+  logout() {
+    delete this.usuario;
+    delete this.token;
+    localStorage.clear();
+  }
+
 }

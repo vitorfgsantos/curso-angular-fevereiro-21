@@ -4,7 +4,6 @@ import { NgForm } from '@angular/forms';
 import { Router } from '@angular/router';
 import { finalize, take } from 'rxjs/operators';
 
-import { LoginResponse } from './login.interfaces';
 import { LoginService } from './login.service';
 
 @Component({
@@ -74,12 +73,12 @@ export class LoginComponent implements OnInit {
         finalize(() => this.estaCarregando = false),
       )
       .subscribe(
-        response => this.onSuccessLogin(response),
+        response => this.onSuccessLogin(),
         error => this.onErrorLogin(error),
       );
   }
 
-  onSuccessLogin(response: LoginResponse) {
+  onSuccessLogin() {
     this.router.navigate(['dashboard']);
   }
 
