@@ -1,8 +1,6 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 
-import { CadastroComponent } from './cadastro/cadastro.component';
-import { Erro404Component } from './erro404/erro404.component';
 import { EstaLogadoGuard } from './shared/guards/esta-logado/esta-logado.guard';
 import { NaoEstaLogadoGuard } from './shared/guards/nao-esta-logado/nao-esta-logado.guard';
 
@@ -12,7 +10,7 @@ const routes: Routes = [{
   canActivate: [EstaLogadoGuard],
 }, {
   path: 'cadastro',
-  component: CadastroComponent,
+  loadChildren: () => import('./cadastro/cadastro.module').then(m => m.CadastroModule),
   canActivate: [NaoEstaLogadoGuard],
 }, {
   path: 'login',
@@ -20,7 +18,7 @@ const routes: Routes = [{
   canActivate: [NaoEstaLogadoGuard],
 }, {
   path: '**',
-  component: Erro404Component
+  loadChildren: () => import('./erro404/erro404.module').then(m => m.Erro404Module),
 }];
 
 @NgModule({
