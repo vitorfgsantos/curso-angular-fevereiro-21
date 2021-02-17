@@ -8,43 +8,24 @@ import { NgxMaskModule } from 'ngx-mask';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { AreaLogadaComponent } from './area-logada/area-logada.component';
-import { DashboardComponent } from './area-logada/dashboard/dashboard.component';
-import { LancamentosComponent } from './area-logada/lancamentos/lancamentos.component';
-import { PlanosContaComponent } from './area-logada/planos-conta/planos-conta.component';
 import { CadastroComponent } from './cadastro/cadastro.component';
 import { Erro404Component } from './erro404/erro404.component';
-import { LoginComponent } from './login/login.component';
-import { ExercicioContadorComponent, ExercicioDataBindingComponent } from './shared/components';
-import { ExercicioDiretivasComponent } from './shared/components/exercicio-diretivas/exercicio-diretivas.component';
-import { ExercicioPipesComponent } from './shared/components/exercicio-pipes/exercicio-pipes.component';
-import { FooterComponent } from './shared/components/footer/footer.component';
-import { HeaderComponent } from './shared/components/header/header.component';
+import { SharedModule } from './shared/shared.module';
 
 registerLocaleData(localePT, 'pt');
 
 @NgModule({
   declarations: [
     AppComponent,
-    HeaderComponent,
-    FooterComponent,
-    ExercicioDataBindingComponent,
-    ExercicioContadorComponent,
-    ExercicioDiretivasComponent,
-    ExercicioPipesComponent,
-    LoginComponent,
     CadastroComponent,
-    LancamentosComponent,
-    PlanosContaComponent,
-    DashboardComponent,
     Erro404Component,
-    AreaLogadaComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     FormsModule,
     HttpClientModule,
+    SharedModule,
     NgxMaskModule.forRoot(),
   ],
   providers: [{
