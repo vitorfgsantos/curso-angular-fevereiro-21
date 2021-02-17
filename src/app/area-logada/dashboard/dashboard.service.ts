@@ -20,9 +20,6 @@ export class DashboardService {
 
   getDashboard(inicio: string, fim: string): Observable<DashboardResponse> {
     return this.http.get<DashboardResponse>(this.API_URL + '/dashboard', {
-      headers: {
-        'Authorization': this.authService.getToken()!
-      },
       params: {
         login: this.authService.getUsuario()!.login,
         inicio: inicio,
