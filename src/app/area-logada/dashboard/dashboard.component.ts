@@ -15,8 +15,12 @@ import { DashboardService } from './dashboard.service';
 export class DashboardComponent implements OnInit {
 
   usuario!: Usuario;
+  dashboard: DashboardResponse | undefined;
 
-  erro = true;
+  inicio = '2021-01-01';
+  fim = '2021-02-01';
+
+  erro = false;
   estaCarregando = false;
 
   constructor(
@@ -31,11 +35,9 @@ export class DashboardComponent implements OnInit {
 
   getDashboard() {
     this.estaCarregando = true;
+    this.erro = false;
 
-    const inicio = '2021-01-01';
-    const fim = '2021-02-01';
-
-    this.dashboardService.getDashboard(inicio, fim)
+    this.dashboardService.getDashboard(this.inicio, this.fim)
       .pipe(
         take(1),
         finalize(() => this.estaCarregando = false),
@@ -47,11 +49,26 @@ export class DashboardComponent implements OnInit {
   }
 
   onSuccess(response: DashboardResponse) {
+    this.dashboard = response;
     console.log(response);
   }
 
   onError(error: HttpErrorResponse) {
-    console.log(error);
+    this.erro = true;
+  }
+
+  getTextSaldoCSS(saldo: number) {
+    return {
+      'text-success': saldo > 0,
+      'text-danger': saldo < 0,
+    }
+  }
+
+  getBordaCardCSS(saldo: number) {
+    return {
+      'border-success': saldo > 0,
+      'border-danger': saldo < 0
+    }
   }
 
 }

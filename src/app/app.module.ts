@@ -15,8 +15,7 @@ import { PlanosContaComponent } from './area-logada/planos-conta/planos-conta.co
 import { CadastroComponent } from './cadastro/cadastro.component';
 import { Erro404Component } from './erro404/erro404.component';
 import { LoginComponent } from './login/login.component';
-import { ExercicioContadorComponent } from './shared/components/exercicio-contador/exercicio-contador.component';
-import { ExercicioDataBindingComponent } from './shared/components/exercicio-data-binding/exercicio-data-binding.component';
+import { ExercicioContadorComponent, ExercicioDataBindingComponent } from './shared/components';
 import { ExercicioDiretivasComponent } from './shared/components/exercicio-diretivas/exercicio-diretivas.component';
 import { ExercicioPipesComponent } from './shared/components/exercicio-pipes/exercicio-pipes.component';
 import { FooterComponent } from './shared/components/footer/footer.component';
