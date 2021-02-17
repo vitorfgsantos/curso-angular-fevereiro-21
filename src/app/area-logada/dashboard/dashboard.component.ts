@@ -1,8 +1,10 @@
 import { HttpErrorResponse } from '@angular/common/http';
-import { Component, OnInit } from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
+import { Subscription } from 'rxjs';
 import { finalize, take } from 'rxjs/operators';
 import { Usuario } from 'src/app/shared/interfaces/usuario.interface';
 import { AuthService } from 'src/app/shared/services/auth/auth.service';
+import { HeaderService } from 'src/app/shared/services/header/header.service';
 
 import { DashboardResponse } from './dashboard.interfaces';
 import { DashboardService } from './dashboard.service';
@@ -12,7 +14,7 @@ import { DashboardService } from './dashboard.service';
   templateUrl: './dashboard.component.html',
   styleUrls: ['./dashboard.component.scss']
 })
-export class DashboardComponent implements OnInit {
+export class DashboardComponent implements OnInit, OnDestroy {
 
   usuario!: Usuario;
   dashboard: DashboardResponse | undefined;
@@ -23,14 +25,29 @@ export class DashboardComponent implements OnInit {
   erro = false;
   estaCarregando = false;
 
+  headerReloadSubscription: Subscription | undefined;
+
   constructor(
     private authService: AuthService,
     private dashboardService: DashboardService,
+    private headerService: HeaderService,
   ) { }
 
   ngOnInit() {
     this.usuario = this.authService.getUsuario()!;
     this.getDashboard();
+    this.subscribeOnHeaderReload();
+  }
+
+  ngOnDestroy() {
+    this.headerReloadSubscription?.unsubscribe();
+  }
+
+  subscribeOnHeaderReload() {
+    this.headerReloadSubscription = this.headerService.$reload
+      .subscribe(
+        () => this.getDashboard(),
+      );
   }
 
   getDashboard() {
