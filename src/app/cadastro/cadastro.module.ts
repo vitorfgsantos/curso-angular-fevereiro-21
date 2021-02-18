@@ -1,6 +1,7 @@
 import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
+import { NgxMaskModule } from 'ngx-mask';
 
 import { CadastroRoutingModule } from './cadastro-routing.module';
 import { CadastroComponent } from './cadastro.component';
@@ -14,6 +15,7 @@ import { CadastroComponent } from './cadastro.component';
     CommonModule,
     CadastroRoutingModule,
     FormsModule,
+    NgxMaskModule.forRoot(),
   ]
 })
 export class CadastroModule { }

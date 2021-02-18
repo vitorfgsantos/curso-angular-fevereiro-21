@@ -3,7 +3,6 @@ import { HttpClientModule } from '@angular/common/http';
 import localePT from '@angular/common/locales/pt';
 import { DEFAULT_CURRENCY_CODE, LOCALE_ID, NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import { NgxMaskModule } from 'ngx-mask';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -20,7 +19,6 @@ registerLocaleData(localePT, 'pt');
     AppRoutingModule,
     HttpClientModule,
     SharedModule,
-    NgxMaskModule.forRoot(),
   ],
   providers: [{
     provide: LOCALE_ID,
