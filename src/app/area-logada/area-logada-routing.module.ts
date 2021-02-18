@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 
 import { AreaLogadaComponent } from './area-logada.component';
+import { DetalhesLancamentoComponent } from './detalhes-lancamento/detalhes-lancamento.component';
 import { LancamentosComponent } from './lancamentos/lancamentos.component';
 import { PlanosContaComponent } from './planos-conta/planos-conta.component';
 
@@ -18,6 +19,9 @@ const routes: Routes = [{
   }, {
     path: 'lancamentos',
     component: LancamentosComponent,
+  }, {
+    path: 'lancamentos/:id',
+    component: DetalhesLancamentoComponent,
   }, {
     path: 'planos-conta',
     component: PlanosContaComponent
