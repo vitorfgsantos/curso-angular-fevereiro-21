@@ -1,6 +1,6 @@
 import { HttpErrorResponse } from '@angular/common/http';
 import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
-import { NgForm } from '@angular/forms';
+import { FormBuilder, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { finalize, take } from 'rxjs/operators';
 
@@ -16,6 +16,11 @@ export class LoginComponent implements OnInit {
   @ViewChild('usuarioInput') usuarioInput: ElementRef | undefined;
   @ViewChild('senhaInput') senhaInput: ElementRef | undefined;
 
+  loginForm = this.formBuilder.group({
+    usuario: ['', Validators.required],
+    senha: ['', [Validators.required, Validators.minLength(4)]]
+  });
+
   usuario: string = '';
   senha: string = '';
 
@@ -25,22 +30,23 @@ export class LoginComponent implements OnInit {
   constructor(
     private loginService: LoginService,
     private router: Router,
+    private formBuilder: FormBuilder,
   ) { }
 
   ngOnInit(): void {
   }
 
-  onSubmit(form: NgForm) {
-    if (!form.valid) {
-      form.controls.usuario.markAsTouched();
-      form.controls.senha.markAsTouched();
+  onSubmit() {
+    if (!this.loginForm.valid) {
+      this.loginForm.controls.usuario.markAsTouched();
+      this.loginForm.controls.senha.markAsTouched();
 
-      if (form.controls.usuario.invalid) {
+      if (this.loginForm.controls.usuario.invalid) {
         this.usuarioInput?.nativeElement.focus();
         return;
       }
 
-      if (form.controls.senha.invalid) {
+      if (this.loginForm.controls.senha.invalid) {
         this.senhaInput?.nativeElement.focus();
       }
 
@@ -50,18 +56,18 @@ export class LoginComponent implements OnInit {
     this.login();
   }
 
-  exibeErro(nomeControle: string, form: NgForm) {
-    if (!form.controls[nomeControle]) {
+  exibeErro(nomeControle: string) {
+    if (!this.loginForm.controls[nomeControle]) {
       return false;
     }
 
-    return form.controls[nomeControle].invalid && form.controls[nomeControle].touched;
+    return this.loginForm.controls[nomeControle].invalid && this.loginForm.controls[nomeControle].touched;
   }
 
   login() {
     this.erroNoLogin = false;
     this.estaCarregando = true;
-    
+
     const credenciais = {
       usuario: this.usuario,
       senha: this.senha,
