@@ -21,9 +21,6 @@ export class LoginComponent implements OnInit {
     senha: ['', [Validators.required, Validators.minLength(4)]]
   });
 
-  usuario: string = '';
-  senha: string = '';
-
   estaCarregando: boolean = false;
   erroNoLogin: boolean = false;
 
@@ -68,12 +65,7 @@ export class LoginComponent implements OnInit {
     this.erroNoLogin = false;
     this.estaCarregando = true;
 
-    const credenciais = {
-      usuario: this.usuario,
-      senha: this.senha,
-    };
-
-    this.loginService.logar(credenciais)
+    this.loginService.logar(this.loginForm.value)
       .pipe(
         take(1),
         finalize(() => this.estaCarregando = false),
@@ -89,6 +81,8 @@ export class LoginComponent implements OnInit {
   }
 
   onErrorLogin(error: HttpErrorResponse) {
+    console.log(error);
+    
     this.erroNoLogin = true;
   }
 
